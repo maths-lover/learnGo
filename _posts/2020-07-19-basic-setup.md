@@ -4,7 +4,7 @@ date: 2020-07-19 08:15:02 +0530
 categories: [Basics]
 tags: [setup,starting,basics,gobasics,basic]
 comments: false
-pin: true
+pin: false
 ---
 
 # Installation
