@@ -15,7 +15,7 @@ set -eu
 WORK_DIR=$(dirname $(dirname $(realpath "$0")))
 
 CONTAINER=.container
-SYNC_TOOL=_scripts/sh/sync_monitor.sh
+SYNC_TOOL=/home/maths_lover/dev/others/learnGo/_scripts/sh/sync_monitor.sh
 
 cmd="bundle exec jekyll s"
 realtime=false
@@ -86,7 +86,7 @@ main() {
   bash _scripts/sh/dump_lastmod.sh
 
   if [[ $realtime = true ]]; then
-    fswatch -0 -e "\\$CONTAINER" -e "\.git" ${WORK_DIR} | xargs -0 -I {} bash ./${SYNC_TOOL} {} $WORK_DIR . &
+    fswatch -0 -e "\\$CONTAINER" -e "\.git" ${WORK_DIR} | xargs -0 -I {} bash ${SYNC_TOOL} {} $WORK_DIR . &
   fi
 
   echo "\$ $cmd"
